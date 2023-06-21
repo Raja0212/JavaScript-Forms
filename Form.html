@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="registrationForm" method="POST">
+
+        <div class="page active" id="page1">
+            <div class="registration-image">
+                <img src="https://media.licdn.com/dms/image/C560BAQG7B1BRq8jC0Q/company-logo_200_200/0/1678377072323?e=1694044800&v=beta&t=tkfX41E2f4kyZZHM7y--N4Ze7RiMEVpdI9HG7O7M-y4"
+                    alt="Registration Image">
+            </div>
+            <h2>OneSight Technology</h2>
+
+
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname">
+            <span id="firstnameError" class="error"></span>
+
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname">
+            <span id="lastnameError" class="error"></span><br>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <span id="usernameError" class="error"></span><br/>
+
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <span id="passwordError" class="error"></span><br>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password"><br>
+            <span id="confirmPasswordError" class="error"></span><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob"><br>
+            <span id="dobError" class="error"></span><br>
+
+            <div>
+                <label for="gender">Gender:</label>
+                <br>
+                <div class="gender-row">
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="other" value="other">
+                    <label for="other">Other</label>
+                </div>
+                <br />
+                <input type="text" id="genderOther" placeholder="Specify your gender" style="display: none;">
+                <br>
+                <span id="genderError" style="display: none;"></span><br />
+            </div>
+
+
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <span id="emailError" class="error"></span><br>
+
+            <button type="button" onclick="validateFields()">Next</button>
+            <button type="reset">Reset Form</button>
+        </div>
+
+
+        <div class="page" id="page2">
+            <h2>Address Information</h2>
+
+            <label for="address1">Address 1:</label>
+            <input type="text" id="address1" name="address1"><br>
+            <span id="address1Error" class="error"></span><br>
+
+            <label for="address2">Address 2:</label>
+            <input type="text" id="address2" name="address2"><br>
+            <span id="address2Error" class="error"></span><br>
+
+            <label for="address3">Address 3 (optional):</label>
+            <input type="text" id="address3" name="address3"><br>
+            <span id="address3Error" class="error"></span><br>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state"><br>
+            <span id="stateError" class="error"></span><br>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city"><br>
+            <span id="cityError" class="error"></span><br>
+
+            <label for="postcode">Postal Code:</label>
+            <input type="text" id="postcode" name="postcode"><br>
+            <span id="postcodeError" class="error"></span><br>
+
+
+            <button type="button" onclick="previousPage()">Previous</button>
+            <button type="reset">Reset Form</button>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="cancel()">Cancel</button>
+        </div>
+    </form>
+
+    <script>
+        function nextPage() {
+            document.getElementById("page1").classList.remove("active");
+            document.getElementById("page2").classList.add("active");
+        }
+
+        function previousPage() {
+            document.getElementById("page2").classList.remove("active");
+            document.getElementById("page1").classList.add("active");
+        }
+
+        function cancel() {
+            // Show registration cancellation alert
+            alert("Registration canceled!");
+
+            // Reset form data
+            document.getElementById("registrationForm").reset();
+
+            // Reset page visibility
+            document.getElementById("page1").classList.add("active");
+            document.getElementById("page2").classList.remove("active");
+        }
+
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
